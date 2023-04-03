@@ -32,6 +32,10 @@ public class AmazonTest {
          * Accepter les cookies
          */
         driver.findElement(By.cssSelector("input#sp-cc-accept")).click();
+        /**
+         * Open tous les menus
+         */
+        driver.findElement((By.cssSelector("#nav-hamburger-menu"))).click();
     }
 
     @AfterTest
