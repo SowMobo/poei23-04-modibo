@@ -19,7 +19,8 @@ public class SearchResultPage {
         wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT));
     }
 
-    public void getProduct(int index) {
+    public ProductPage getProduct(int index) {
        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(productList)).get(index).click();
+       return new ProductPage(driver);
     }
 }

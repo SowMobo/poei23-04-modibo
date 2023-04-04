@@ -29,19 +29,22 @@ public class ProductPage {
         return wait.until(ExpectedConditions.presenceOfElementLocated(productTitle)).getText();
     }
     public  String getPrice() {
-        return driver.findElement(priceText).getText();
+        return driver.findElement(priceText).getText().replace('\n', '.');
     }
     public String getAvailableDate() {
         return driver.findElement(availabilityDate).getText();
     }
-    public void addToCart() {
+    public ProductPage addToCart() {
             wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
+            return this;
     }
-    public void notAcceptInsurance() {
+    public ProductPage notAcceptInsurance() {
         wait.until(ExpectedConditions.elementToBeClickable(nonMerciButton)).click();
+        return this;
     }
 
-    public  void openCart() {
+    public  CartPage openCart() {
         wait.until(ExpectedConditions.elementToBeClickable(openCartButton)).click();
+        return new CartPage(driver);
     }
 }

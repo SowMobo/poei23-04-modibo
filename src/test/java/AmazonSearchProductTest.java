@@ -16,28 +16,10 @@ import java.time.Duration;
 
 public class AmazonSearchProductTest {
     WebDriver driver;
-    HomePage home;
-    SearchResultPage searchResultPage;
-    ProductPage productPage;
-    CartPage cartPage;
     @BeforeMethod
     public void setup() {
         driver = new ChromeDriver();
-        home = new HomePage(driver);
-        searchResultPage = new SearchResultPage(driver);
-        productPage = new ProductPage(driver);
-        cartPage = new CartPage(driver);
-
-        /**
-         * Acceder au site "amazon.fr"
-         */
-        String sutUrl = "https://amazon.fr";
-        driver.get(sutUrl);
-
-        /**
-         * Accepter les cookies
-         */
-        driver.findElement(By.cssSelector("input#sp-cc-accept")).click();
+        driver.manage().window().fullscreen();
     }
 
     @Test
@@ -45,15 +27,21 @@ public class AmazonSearchProductTest {
         /**
          * Search iphone 13
          */
-        home.search("iphone 13");
-        searchResultPage.getProduct(0);
+        HomePage home = new HomePage(driver);
+        ProductPage productPage = home.closeCookiesPopup()
+                        .search("iphone 13")
+                                .getProduct(0);
+
         Assert.assertEquals(productPage.getTitle(),"Apple iPhone 13 (128 Go) - Vert",
                 "the product title is not correct");
-        String price = productPage.getPrice().replace('\n', '.');
+        String price = productPage.getPrice();
         Assert.assertEquals(price, "799.00€", "The price has changed");
-        productPage.addToCart();
-        productPage.notAcceptInsurance();
-        cartPage.openCart();
+
+        CartPage cartPage = productPage.addToCart()
+                .addToCart()
+                .notAcceptInsurance()
+                .openCart();
+
         Assert.assertEquals(cartPage.getProductTitle(0), "Apple iPhone 13 (128 Go) - Vert",
                 "The product you added is not that ou are ordering");
     }

@@ -11,7 +11,9 @@ import java.time.Duration;
 public class HomePage {
     // Class variables
     static final int TIMEOUT = 2; // 2 seconds
+    static String sutUrl = "https://amazon.fr";
     // locators
+    By accepTCookiesButton = By.cssSelector("input#sp-cc-accept");
     By searchBarLocator = By.cssSelector("input#twotabsearchtextbox");
     By tousMenusButton = By.cssSelector("#nav-hamburger-menu");
     By jeuVideoAndConsolesButton = By.cssSelector(".hmenu.hmenu-visible li");
@@ -22,10 +24,22 @@ public class HomePage {
     public HomePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT));
+        /**
+         * Acceder au site "amazon.fr"
+         */
+        driver.get(sutUrl);
+    }
+    public HomePage closeCookiesPopup() {
+        /**
+         * Accepter les cookies
+         */
+        driver.findElement(accepTCookiesButton).click();
+        return this;
     }
 
-    public void search(String keyword) {
+    public SearchResultPage search(String keyword) {
         driver.findElement(searchBarLocator).sendKeys(keyword + Keys.ENTER);
+        return new SearchResultPage(driver);
     }
 
     /**

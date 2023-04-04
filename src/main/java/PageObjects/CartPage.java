@@ -2,6 +2,7 @@ package PageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -12,6 +13,7 @@ public class CartPage {
     WebDriver driver;
     WebDriverWait wait;
     By ordersTitle = By.cssSelector(".a-truncate-cut");
+    By cartItemsBy = By.cssSelector("");
     By cartButton = By.cssSelector("input[class='a-button-input']" +
             "[aria-labelledby='attach-sidesheet-view-cart-button-announce']");
     public CartPage(WebDriver driver) {
@@ -23,6 +25,8 @@ public class CartPage {
         wait.until(ExpectedConditions.elementToBeClickable(cartButton)).click();
     }
     public  String getProductTitle(int index) {
+//        WebElement cardItem = driver.findElements(cartItemsBy).get(index);
+//        return cardItem.findElement(ordersTitle).getText();
         return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(ordersTitle)).get(index).getText();
     }
 }
