@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class GamesAndConsolesPage {
-    static final int TIMEOUT = 5; // 2 seconds
+    static final int TIMEOUT = 10; // 2 seconds
     WebDriver driver;
     WebDriverWait wait;
     //locators
@@ -22,11 +22,12 @@ public class GamesAndConsolesPage {
 //        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
 //                topSellProduct)).get(index).getAttribute("title");
 //    }
-    public void openBestSeller(int index) {
+    public ProductPage openBestSeller(int index) {
         /**
          * Open the best sell product
          */
        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
                 topSellProduct)).get(index).click();
+       return new ProductPage(driver);
     }
 }
