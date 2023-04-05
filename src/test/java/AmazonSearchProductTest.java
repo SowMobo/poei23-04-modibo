@@ -37,10 +37,10 @@ public class AmazonSearchProductTest {
         String price = productPage.getPrice();
         Assert.assertEquals(price, "743.07€", "The price has changed");
 
-        CartPage cartPage = productPage.addToCart()
+        ProductPage productPage1 = productPage.addToCart()
                 .addToCart()
-                .notAcceptInsurance()
-                .openCart();
+                .notAcceptInsurance();
+//                .openCart();
 
         Assert.assertEquals(cartPage.getProductTitle(0), "Apple iPhone 13 (128 Go) - Vert",
                 "The product you added is not that ou are ordering");
