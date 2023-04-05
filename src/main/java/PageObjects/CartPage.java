@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class CartPage {
-    static final int TIMEOUT = 10; // 2 seconds
+    static final int TIMEOUT = 5; // 2 seconds
     WebDriver driver;
     WebDriverWait wait;
     By ordersTitle = By.cssSelector(".a-truncate-cut");
