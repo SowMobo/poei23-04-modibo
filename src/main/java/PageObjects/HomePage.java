@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class HomePage {
     // Class variables
-    static final int TIMEOUT = 2; // 2 seconds
+    static final int TIMEOUT = 10; // 2 seconds
     static String sutUrl = "https://amazon.fr";
     // locators
     By accepTCookiesButton = By.cssSelector("input#sp-cc-accept");

@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class SearchResultPage {
 
-    static final int TIMEOUT = 2; // 2 seconds
+    static final int TIMEOUT = 10; // 2 seconds
     WebDriver driver;
     WebDriverWait wait;
     By productList = By.cssSelector(".a-section.aok-relative.s-image-square-aspect");
