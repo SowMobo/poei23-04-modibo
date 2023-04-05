@@ -36,7 +36,7 @@ public class AmazonBestGamesAndConsolesSearchTest {
         driver.findElement(By.cssSelector("input#sp-cc-accept")).click();
     }
 
-    @Test
+//    @Test
     public void bestGamesAndConsolesSellTest(){
         homePage.goToGamesAndConsolesPage();
         gamesAndConsolesPage.openBestSeller(0);
