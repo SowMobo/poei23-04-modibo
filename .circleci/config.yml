@@ -8,19 +8,21 @@ jobs:
   say-hello:
     # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/configuration-reference/#executor-job
-    docker:
-      - image: cimg/base:stable
+#    docker:
+#      - image: cimg/base:stable
+    machine: # executor type
+      image: ubuntu-2204:2023.02.1
     # Add steps to the job
     # See: https://circleci.com/docs/configuration-reference/#steps
     steps:
-      - checkout
+      - checkout # copy code(sut) to image
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+          name: "Launch the tests"
+          command: mvn clean test
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
-workflows:
+workflows: # pipeline
   say-hello-workflow:
     jobs:
       - say-hello

@@ -22,11 +22,12 @@ public class GamesAndConsolesPage {
 //        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
 //                topSellProduct)).get(index).getAttribute("title");
 //    }
-    public void openBestSeller(int index) {
+    public ProductPage openBestSeller(int index) {
         /**
          * Open the best sell product
          */
        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
                 topSellProduct)).get(index).click();
+       return new ProductPage(driver);
     }
 }

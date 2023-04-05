@@ -47,7 +47,7 @@ public class HomePage {
      * click Jeu video et
      * click tous les jeux video
      */
-    public void goToGamesAndConsolesPage() {
+    public GamesAndConsolesPage goToGamesAndConsolesPage() {
         /**
          * Open tous les menus
          */
@@ -63,6 +63,7 @@ public class HomePage {
          */
         wait.until(ExpectedConditions.textToBePresentInElementLocated(tousJeuxVideoButton, "Tous les jeux vidéo"));
         wait.until(ExpectedConditions.elementToBeClickable(tousJeuxVideoButton)).click();
+        return new GamesAndConsolesPage(driver);
 
     }
 }
