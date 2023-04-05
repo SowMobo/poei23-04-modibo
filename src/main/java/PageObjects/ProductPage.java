@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class ProductPage {
-    static final int TIMEOUT = 5; // 2 seconds
+    static final int TIMEOUT = 15; // 2 seconds
     WebDriver driver;
     WebDriverWait wait;
     By productTitle = By.cssSelector("#productTitle");
