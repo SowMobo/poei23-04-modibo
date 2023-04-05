@@ -47,7 +47,7 @@ public class AmazonSearchProductTest {
     }
 
     @Test
-    public void amazonAuthentificationTest() {
+    public void loginTest() {
         HomePage home = new HomePage(driver);
         home.closeCookiesPopup().login();
     }

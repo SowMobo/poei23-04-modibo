@@ -18,7 +18,7 @@ jobs:
       - checkout # copy code(sut) to image
       - run:
           name: "Launch the tests"
-          command: mvn clean test -Dtest=AmazonSearchProductTest
+          command: mvn clean test -Dtest=AmazonSearchProductTest#loginTest
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
