@@ -14,7 +14,7 @@ public class GoogleTest {
             driver = new ChromeDriver(new ChromeOptions());
         }
 
-//        @Test
+        @Test
         public void searchOnGoogleTest() {
             driver.get("https://www.google.com/");
             driver.findElements(By.cssSelector(".QS5gu.sy4vM")).get(1).click();

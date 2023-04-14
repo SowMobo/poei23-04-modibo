@@ -17,9 +17,10 @@ import java.time.Duration;
 
 public class AmazonSearchProductTest {
     WebDriver driver;
+
     @BeforeMethod
     public void setup() {
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
         driver.manage().window().fullscreen();
     }
 
@@ -30,17 +31,19 @@ public class AmazonSearchProductTest {
          */
         HomePage home = new HomePage(driver);
         ProductPage productPage = home.closeCookiesPopup()
-                        .search("iphone 13")
-                                .getProduct(0);
+                .search("iphone 13")
+                .getProduct(0);
 
-        Assert.assertEquals(productPage.getTitle(),"Apple iPhone 13 (128 Go) - Vert",
+        Assert.assertEquals(productPage.getTitle(), "Apple iPhone 13 (128 Go) - Vert",
                 "the product title is not correct");
         String price = productPage.getPrice();
-        Assert.assertEquals(price, "743.07€", "The price has changed");
+        Assert.assertEquals(price, "799.00€", "The price has changed");
 
-        CartPage cartPage = productPage.addToCart()
-                //.notAcceptInsurance()
-                .openCart();
+        CartPage cartPage = productPage
+                .addToCart()
+                .notAcceptInsurance()
+                .openCart()
+                .updateQuantity(0, 3);
 
         Assert.assertEquals(cartPage.getProductTitle(0), "Apple iPhone 13 (128 Go) - Vert",
                 "The product you added is not that ou are ordering");
