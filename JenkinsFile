@@ -1,7 +1,7 @@
 pipeline {
     agent any
     // schedule the execution every time
-    triggers {cron {"* * * * *"}}
+    triggers {cron ("* * * * *")}
     stages {
         stage('Init') {
             steps {
