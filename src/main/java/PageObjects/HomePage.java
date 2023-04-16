@@ -15,7 +15,7 @@ import java.util.List;
 
 public class HomePage {
     // Class variables
-    static final int TIMEOUT = 5; // 2 seconds
+    static final int TIMEOUT = 10; // 2 seconds
     static String sutUrl = "https://amazon.fr";
     // locators
     @FindBy(id = "sp-cc-accept")

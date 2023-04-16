@@ -9,9 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.time.Duration;
 
@@ -55,7 +53,7 @@ public class AmazonSearchProductTest {
         home.closeCookiesPopup().login();
     }
 
-    @AfterTest
+    @AfterMethod
     public void teardown() {
         driver.quit();
     }

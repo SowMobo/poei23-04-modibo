@@ -6,9 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.time.Duration;
 
@@ -36,7 +34,7 @@ public class AmazonBestGamesAndConsolesSearchTest {
         driver.findElement(By.cssSelector("input#sp-cc-accept")).click();
     }
 
-    //    @Test
+    @Test
     public void bestGamesAndConsolesSellTest() {
         homePage.goToGamesAndConsolesPage();
         gamesAndConsolesPage.openBestSeller(0);
@@ -51,7 +49,7 @@ public class AmazonBestGamesAndConsolesSearchTest {
                 "The available date has changed");
     }
 
-    @AfterTest
+    @AfterMethod
     public void teardown() {
         driver.quit();
     }
